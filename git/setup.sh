@@ -5,14 +5,14 @@ git_installed?()
 
 git_configured?()
 {
-  [ -f $1 ]
+  [[ -f $1 ]]
 }
 
 git_setup()
 {
   # Git setup script proudly stolen from @holman:
   # https://github.com/holman/dotfiles/blob/master/script/bootstrap
-  if [ "$(uname -s)" == "Darwin" ]; then
+  if [[ "$(uname -s)" == "Darwin" ]]; then
     git_credentialhelper='osxkeychain'
   else
     git_credentialhelper='cache'
