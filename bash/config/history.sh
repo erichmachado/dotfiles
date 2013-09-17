@@ -9,3 +9,6 @@ HISTSIZE=100000
  
 # Setting history entries length in file
 HISTFILESIZE=100000
+
+# Setting history entries timestamp format
+HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  "
