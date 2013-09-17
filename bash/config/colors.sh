@@ -1,1 +1,1 @@
-CLICOLOR=true
+export CLICOLOR=true
