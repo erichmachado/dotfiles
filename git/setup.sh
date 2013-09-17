@@ -34,8 +34,7 @@ if git_installed? ; then
   git_configlocal=~/.gitconfig.local
 
   if ! git_configured? $git_configlocal ; then
+    echo "Local Git configuration file not found. Please provide the information below:"
     git_setup $git_configlocal
-  else
-    echo "Git is already configured."
   fi
 fi
