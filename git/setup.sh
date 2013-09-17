@@ -1,9 +1,11 @@
-git_installed?()
+#!/bin/sh
+
+git_installed()
 {
-  git --version 2>&1 >/dev/null
+  test $(which git)
 }
 
-git_configured?()
+git_configured()
 {
   [[ -f $1 ]]
 }
@@ -30,10 +32,10 @@ git_setup()
   git config -f $1 credential.helper $git_credentialhelper
 }
 
-if git_installed? ; then
+if git_installed ; then
   git_configlocal=~/.gitconfig.local
 
-  if ! git_configured? $git_configlocal ; then
+  if ! git_configured $git_configlocal ; then
     echo "Local Git configuration file not found. Please provide the information below:"
     git_setup $git_configlocal
   fi
