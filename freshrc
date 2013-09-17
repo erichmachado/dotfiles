@@ -5,6 +5,7 @@ if test -n "$BASH_VERSION" ; then
   fresh freshshell/fresh contrib/source-build.sh --file='~/.bashrc'
   fresh bash/bash_profile --file
   fresh bash/aliases/\*
+  fresh bash/config/\*
 fi
 
 # Git setup
