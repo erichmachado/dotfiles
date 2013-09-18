@@ -12,3 +12,6 @@ fi
 source "$FRESH_LOCAL/git/setup.sh"
 fresh git/gitconfig --file
 fresh git/gitignore.global --file
+
+# OS X setup
+fresh osx/\* --file=osx/setup.sh
