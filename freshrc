@@ -15,3 +15,4 @@ fresh git/gitignore.global --file
 
 # OS X setup
 fresh osx/\* --file=osx/setup.sh
+source "$FRESH_PATH/build/osx/setup.sh"
