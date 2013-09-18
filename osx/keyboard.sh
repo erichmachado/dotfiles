@@ -1,4 +1,3 @@
-#!/bin/sh
 # Based on @holman's OS X defaults:
 # https://github.com/holman/dotfiles/blob/master/osx/set-defaults.sh
 
