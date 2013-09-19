@@ -1,8 +1,8 @@
 # handles updating fresh
 fresh freshshell/fresh bin/fresh --bin
 
-if test -n "$BASH_VERSION" ; then
-  fresh freshshell/fresh contrib/source-build.sh --file='~/.bashrc'
+if test -n "$BASH_VERSION"; then
+  fresh freshshell/fresh contrib/source-build.sh --file="$HOME"/.bashrc
   fresh bash/bash_profile --file
   fresh bash/aliases/\*
   fresh bash/config/\*
