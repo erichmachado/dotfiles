@@ -14,5 +14,6 @@ fresh git/gitconfig --file
 fresh git/gitignore.global --file
 
 # OS X setup
-fresh osx/\* --file=osx/setup.sh
-source "$FRESH_PATH/build/osx/setup.sh"
+for script in "$FRESH_LOCAL/osx/*.sh"; do
+  [[ -f $script ]] && source $script
+done
