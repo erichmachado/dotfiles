@@ -14,6 +14,6 @@ fresh git/gitconfig --file
 fresh git/gitignore.global --file
 
 # OS X setup
-for script in "$FRESH_LOCAL/osx/*.sh"; do
+for script in "$FRESH_LOCAL"/osx/*.sh; do
   [[ -f $script ]] && source $script
 done
