@@ -26,6 +26,16 @@ git_configured()
   [[ -f $1 ]]
 }
 
+git_config_read()
+{
+  git config --get -f $1 $2
+}
+
+git_config_write()
+{
+  git config -f $1 $2 $3
+}
+
 git_setup()
 {
   # Git setup script proudly stolen from @holman:
@@ -36,24 +46,23 @@ git_setup()
     git_credentialhelper='cache'
   fi
 
-  prompt ' - What is your Git user name?' git_username
-  prompt ' - What is your Git user email?' git_useremail
-
   # Git configuration idea from @jasoncodes dotfiles:
   # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
-  git config -f $1 user.name "$git_username"
-  git config -f $1 user.email $git_useremail
+  if ! git_config_read $1 user.name; then
+    prompt ' - What is your Git user name?' git_username
+    git_config_write $1 user.name "$git_username"
+  fi
+  if ! git_config_read $1 user.email; then
+    prompt ' - What is your Git user email?' git_useremail
+    git_config_write $1 user.email $git_useremail
+  fi
   git config -f $1 credential.helper $git_credentialhelper
 }
 
 if installed git; then
   printf 'Git detected. Configuring Git... '
   git_configlocal=~/.gitconfig.local
-
-  if ! git_configured $git_configlocal ; then
-    echo "Local Git configuration file not found. Please provide the information below:"
-    git_setup $git_configlocal
-  fi
+  git_setup $git_configlocal
   
   fresh git/gitconfig --file
   fresh git/gitignore.global --file
