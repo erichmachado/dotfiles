@@ -7,6 +7,12 @@ installed()
   test $(which $1)
 }
 
+prompt()
+{
+  echo $1
+  read -e $2
+}
+
 if test -n "$BASH_VERSION"; then
   fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
   fresh bash/bash_profile --file
@@ -30,10 +36,8 @@ git_setup()
     git_credentialhelper='cache'
   fi
 
-  echo ' - What is your Git user name?'
-  read -e git_username
-  echo ' - What is your Git user email?'
-  read -e git_useremail
+  prompt ' - What is your Git user name?' git_username
+  prompt ' - What is your Git user email?' git_useremail
 
   # Git configuration idea from @jasoncodes dotfiles:
   # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
