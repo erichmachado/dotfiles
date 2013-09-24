@@ -1,6 +1,12 @@
 # handles updating fresh
 fresh freshshell/fresh bin/fresh --bin
 
+# Helper functions
+installed()
+{
+  test $(which $1)
+}
+
 if test -n "$BASH_VERSION"; then
   fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
   fresh bash/bash_profile --file
@@ -9,11 +15,6 @@ if test -n "$BASH_VERSION"; then
 fi
 
 # Git setup
-git_installed()
-{
-  test $(which git)
-}
-
 git_configured()
 {
   [[ -f $1 ]]
@@ -41,7 +42,7 @@ git_setup()
   git config -f $1 credential.helper $git_credentialhelper
 }
 
-if git_installed ; then
+if installed git; then
   git_configlocal=~/.gitconfig.local
 
   if ! git_configured $git_configlocal ; then
