@@ -9,7 +9,7 @@ installed()
 
 prompt()
 {
-  echo $1
+  printf "$1\n"
   read -e $2
 }
 
@@ -33,7 +33,7 @@ git_config_read()
 
 git_config_write()
 {
-  git config -f $1 $2 $3
+  git config -f $1 $2 "$3"
 }
 
 git_setup()
@@ -49,7 +49,7 @@ git_setup()
   # Git configuration idea from @jasoncodes dotfiles:
   # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
   if ! git_config_read $1 user.name; then
-    prompt ' - What is your Git user name?' git_username
+    prompt '\n - What is your Git user name?' git_username
     git_config_write $1 user.name "$git_username"
   fi
   if ! git_config_read $1 user.email; then
