@@ -48,10 +48,10 @@ if git_installed ; then
     echo "Local Git configuration file not found. Please provide the information below:"
     git_setup $git_configlocal
   fi
+  
+  fresh git/gitconfig --file
+  fresh git/gitignore.global --file
 fi
-
-fresh git/gitconfig --file
-fresh git/gitignore.global --file
 
 # OS X setup
 for script in "$FRESH_LOCAL"/osx/*.sh; do
