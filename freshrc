@@ -43,6 +43,7 @@ git_setup()
 }
 
 if installed git; then
+  printf 'Git detected. Configuring Git... '
   git_configlocal=~/.gitconfig.local
 
   if ! git_configured $git_configlocal ; then
@@ -52,6 +53,7 @@ if installed git; then
   
   fresh git/gitconfig --file
   fresh git/gitignore.global --file
+  echo 'OK'
 fi
 
 # OS X setup
