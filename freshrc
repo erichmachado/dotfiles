@@ -28,7 +28,7 @@ git_configured()
 
 git_config_read()
 {
-  git config --get -f $1 $2
+  git config --get -f $1 $2 > /dev/null
 }
 
 git_config_write()
