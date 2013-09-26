@@ -29,5 +29,5 @@ fi
 
 # OS X setup
 if _running_osx; then
-  _include "osx/*.sh"
+  _include "osx/defaults/*.sh"
 fi
