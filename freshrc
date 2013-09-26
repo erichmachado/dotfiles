@@ -13,10 +13,10 @@ fi
 
 if _installed git; then
   _include "git/setup.sh"
-  local __git_config=~/.gitconfig.local
-  GIT_CONFIG="$__git_config" _git_setup
+  local __git_config="~/.gitconfig.local"
+  GIT_CONFIG=$(eval echo $__git_config) _git_setup
   
-  fresh git/gitconfig --file
+  fresh git/gitconfig --file --filter="sed 's+_GIT_CONFIG_+${__git_config}+g'"
   fresh git/gitignore.global --file
 fi
 
