@@ -12,7 +12,7 @@ if test -n "$BASH_VERSION"; then
 fi
 
 if _installed git; then
-  source "$FRESH_LOCAL"/git/setup.sh
+  _include "git/setup.sh"
   git_configlocal=~/.gitconfig.local
   _git_setup $git_configlocal
   
@@ -21,6 +21,4 @@ if _installed git; then
 fi
 
 # OS X setup
-for script in "$FRESH_LOCAL"/osx/*.sh; do
-  [[ -f $script ]] && source $script
-done
+_include "osx/*.sh"
