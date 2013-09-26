@@ -51,3 +51,13 @@ _running_osx()
 {
   [[ "$(uname -s)" == "Darwin" ]]
 }
+
+# Checks if it is running Bash
+#
+# Returns:
+#   0 - when it is running Bash
+#   1 - when it is not running Bash
+_running_bash()
+{
+  test -n "$BASH_VERSION"
+}
