@@ -12,6 +12,12 @@ _include()
   done
 }
 
+# Checks if a binary or executable script (command) can be found in the user $PATH
+# Example:
+# _installed git
+# Returns:
+# 0 - when the provided command was found in the user $PATH
+# 1 - when the provided command was not found in the user $PATH
 _installed()
 {
   test $(which $1)
