@@ -1,10 +1,10 @@
 # Helper functions
-installed()
+_installed()
 {
   test $(which $1)
 }
 
-prompt()
+_prompt()
 {
   printf "$1\n"
   read -e $2

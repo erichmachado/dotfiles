@@ -11,10 +11,10 @@ if test -n "$BASH_VERSION"; then
   fresh bash/config/\*
 fi
 
-if installed git; then
+if _installed git; then
   source "$FRESH_LOCAL"/git/setup.sh
   git_configlocal=~/.gitconfig.local
-  git_setup $git_configlocal
+  _git_setup $git_configlocal
   
   fresh git/gitconfig --file
   fresh git/gitignore.global --file

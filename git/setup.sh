@@ -1,15 +1,15 @@
 # Git setup
-git_config_read()
+_git_config_read()
 {
   git config --get -f $1 $2 > /dev/null
 }
 
-git_config_write()
+_git_config_write()
 {
   git config -f $1 $2 "$3"
 }
 
-git_setup()
+_git_setup()
 {
   # Git setup script proudly stolen from @holman:
   # https://github.com/holman/dotfiles/blob/master/script/bootstrap
@@ -21,13 +21,13 @@ git_setup()
 
   # Git configuration idea from @jasoncodes dotfiles:
   # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
-  if ! git_config_read $1 user.name; then
-    prompt ' - What is your Git user name?' git_username
-    git_config_write $1 user.name "$git_username"
+  if ! _git_config_read $1 user.name; then
+    _prompt ' - What is your Git user name?' git_username
+    _git_config_write $1 user.name "$git_username"
   fi
-  if ! git_config_read $1 user.email; then
-    prompt ' - What is your Git user email?' git_useremail
-    git_config_write $1 user.email $git_useremail
+  if ! _git_config_read $1 user.email; then
+    _prompt ' - What is your Git user email?' git_useremail
+    _git_config_write $1 user.email $git_useremail
   fi
-  git config -f $1 credential.helper $git_credentialhelper
+  _git_config_write $1 credential.helper $git_credentialhelper
 }
