@@ -20,53 +20,13 @@ if test -n "$BASH_VERSION"; then
   fresh bash/config/\*
 fi
 
-# Git setup
-git_configured()
-{
-  [[ -f $1 ]]
-}
-
-git_config_read()
-{
-  git config --get -f $1 $2 > /dev/null
-}
-
-git_config_write()
-{
-  git config -f $1 $2 "$3"
-}
-
-git_setup()
-{
-  # Git setup script proudly stolen from @holman:
-  # https://github.com/holman/dotfiles/blob/master/script/bootstrap
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    git_credentialhelper='osxkeychain'
-  else
-    git_credentialhelper='cache'
-  fi
-
-  # Git configuration idea from @jasoncodes dotfiles:
-  # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
-  if ! git_config_read $1 user.name; then
-    prompt '\n - What is your Git user name?' git_username
-    git_config_write $1 user.name "$git_username"
-  fi
-  if ! git_config_read $1 user.email; then
-    prompt ' - What is your Git user email?' git_useremail
-    git_config_write $1 user.email $git_useremail
-  fi
-  git config -f $1 credential.helper $git_credentialhelper
-}
-
 if installed git; then
-  printf 'Git detected. Configuring Git... '
+  source "$FRESH_LOCAL"/git/setup.sh
   git_configlocal=~/.gitconfig.local
   git_setup $git_configlocal
   
   fresh git/gitconfig --file
   fresh git/gitignore.global --file
-  echo 'OK'
 fi
 
 # OS X setup
