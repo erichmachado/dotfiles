@@ -41,3 +41,13 @@ _prompt()
   printf "$1"
   read -e $2
 }
+
+# Checks if it is running OS X
+#
+# Returns:
+#   0 - when it is running OS X
+#   1 - when it is not running OS X
+_running_osx()
+{
+  [[ "$(uname -s)" == "Darwin" ]]
+}

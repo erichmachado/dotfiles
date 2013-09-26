@@ -13,7 +13,7 @@ _git_setup()
 {
   # Git setup script proudly stolen from @holman:
   # https://github.com/holman/dotfiles/blob/master/script/bootstrap
-  if [[ "$(uname -s)" == "Darwin" ]]; then
+  if _running_osx; then
     git_credentialhelper='osxkeychain'
   else
     git_credentialhelper='cache'
