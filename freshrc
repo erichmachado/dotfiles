@@ -6,8 +6,13 @@ fresh freshshell/fresh bin/fresh --bin
 
 # Bash setup
 if _running_bash; then
-  fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
-  fresh bash/bash_profile --file
+  # OS X Terminal App sources ~/.bash_profile instead of ~/.bashrc
+  if _running_osx; then
+    bash_init_file="~/.bash_profile"
+  else
+    bash_init_file="~/.bashrc"
+  fi
+  fresh freshshell/fresh contrib/source-build.sh --file="$bash_init_file"
   fresh bash/aliases/\*
   fresh bash/config/\*
 fi
