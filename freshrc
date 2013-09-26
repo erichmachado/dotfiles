@@ -13,8 +13,8 @@ fi
 
 if _installed git; then
   _include "git/setup.sh"
-  git_configlocal=~/.gitconfig.local
-  _git_setup $git_configlocal
+  local __git_config=~/.gitconfig.local
+  GIT_CONFIG="$__git_config" _git_setup
   
   fresh git/gitconfig --file
   fresh git/gitignore.global --file
