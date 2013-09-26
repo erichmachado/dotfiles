@@ -22,11 +22,11 @@ _git_setup()
   # Git configuration idea from @jasoncodes dotfiles:
   # https://github.com/jasoncodes/dotfiles/blob/master/config/gitconfig
   if ! _git_config_read $1 user.name; then
-    _prompt ' - What is your Git user name?' git_username
+    _prompt " - What is your Git user name?\n" git_username
     _git_config_write $1 user.name "$git_username"
   fi
   if ! _git_config_read $1 user.email; then
-    _prompt ' - What is your Git user email?' git_useremail
+    _prompt " - What is your Git user email?\n" git_useremail
     _git_config_write $1 user.email $git_useremail
   fi
   _git_config_write $1 credential.helper $git_credentialhelper
