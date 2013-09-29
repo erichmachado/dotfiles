@@ -27,6 +27,11 @@ if _installed git; then
   fresh git/gitignore.global --file
 fi
 
+# rbenv setup
+if _installed rbenv; then
+  fresh rbenv/\*
+fi
+
 # OS X setup
 if _running_osx; then
   _include "osx/defaults/*.sh"
