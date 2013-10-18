@@ -29,7 +29,10 @@ fi
 
 # rbenv setup
 if _installed rbenv; then
-  fresh rbenv/\*
+  if _installed brew; then
+    fresh rbenv/homebrew.sh
+  fi
+  fresh rbenv/setup.sh
 fi
 
 # OS X setup
