@@ -32,7 +32,7 @@ if _installed rbenv; then
   if _installed brew; then
     fresh rbenv/homebrew.sh
   fi
-  fresh rbenv/setup.sh
+  fresh rbenv/init.sh
 fi
 
 # OS X setup
