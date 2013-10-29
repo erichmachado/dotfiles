@@ -13,6 +13,8 @@ if _running_bash; then
     bash_init_file="~/.bashrc"
   fi
   fresh freshshell/fresh contrib/source-build.sh --file="$bash_init_file"
+  # Enabling fresh's Bash completions
+  fresh freshshell/fresh contrib/completion/fresh-completion.bash
   fresh bash/aliases/\*
   fresh bash/config/\*
 fi
