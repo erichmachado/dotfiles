@@ -41,3 +41,8 @@ fi
 if _running_osx; then
   _include "osx/defaults/*.sh"
 fi
+
+# Heroku setup
+if _directory_exists /usr/local/heroku/bin; then
+  fresh heroku/\*
+fi
