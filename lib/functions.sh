@@ -29,6 +29,20 @@ _installed()
   test $(which $1)
 }
 
+# Checks if a directory exists
+#
+# Arguments:
+#   $1 - the directory to check
+# Returns:
+#   0 - when the provided directory exists
+#   1 - when the provided directory does not exists
+# Example:
+#   _directory_exists /usr/local/custom
+_directory_exists()
+{
+  [[ -d $1 ]]
+}
+
 # Displays a prompt to the user and collects the answer
 #
 # Arguments:
