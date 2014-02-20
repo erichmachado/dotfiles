@@ -37,6 +37,11 @@ if _installed rbenv; then
   fresh rbenv/init.sh
 fi
 
+# Ruby
+if _installed ruby; then
+  fresh ruby/irbrc --file
+fi
+
 # OS X setup
 if _running_osx; then
   _include "osx/defaults/*.sh"
