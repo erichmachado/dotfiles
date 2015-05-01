@@ -24,7 +24,7 @@ if _installed git; then
   _include "git/setup.sh"
   local __git_config="~/.gitconfig.local"
   GIT_CONFIG=$(eval echo $__git_config) _git_setup
-  
+
   fresh git/gitconfig --file --filter="sed 's+_GIT_CONFIG_+${__git_config}+g'"
   fresh git/gitignore.global --file
 fi
@@ -45,6 +45,9 @@ fi
 # OS X setup
 if _running_osx; then
   _include "osx/defaults/*.sh"
+  if _directory_exists /Developer/NVIDIA/CUDA-7.0; then
+    fresh osx/cuda/\*
+  fi
 fi
 
 # Heroku setup
