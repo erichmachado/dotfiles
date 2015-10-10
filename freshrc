@@ -45,6 +45,9 @@ fi
 # OS X setup
 if _running_osx; then
   _include "osx/defaults/*.sh"
+  if _installed brew; then
+    fresh osx/homebrew/\*
+  fi
   if _directory_exists /Developer/NVIDIA/CUDA-7.0; then
     fresh osx/cuda/\*
   fi
