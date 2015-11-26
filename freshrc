@@ -57,3 +57,9 @@ fi
 if _directory_exists /usr/local/heroku/bin; then
   fresh heroku/\*
 fi
+
+# Chef DK setup
+if _directory_exists /opt/chefdk/bin; then
+  fresh chef/\*
+fi
+
