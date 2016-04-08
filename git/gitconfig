@@ -1,8 +1,0 @@
-[include]
-  path = _GIT_CONFIG_
-[core]
-  excludesfile = ~/.gitignore.global
-[color]
-  ui = auto
-[push]
-  default = simple

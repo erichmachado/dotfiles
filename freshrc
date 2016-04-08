@@ -22,10 +22,9 @@ fi
 # Git setup
 if _installed git; then
   _include "git/setup.sh"
-  local __git_config="~/.gitconfig.local"
-  GIT_CONFIG=$(eval echo $__git_config) _git_setup
+  _git_global_setup
 
-  fresh git/gitconfig --file --filter="sed 's+_GIT_CONFIG_+${__git_config}+g'"
+  fresh git/gitconfig.static --file
   fresh git/gitignore.global --file
 fi
 
@@ -62,4 +61,3 @@ fi
 if _directory_exists /opt/chefdk/bin; then
   fresh chef/\*
 fi
-

@@ -1,0 +1,6 @@
+[core]
+        excludesfile = ~/.gitignore.global
+[color]
+        ui = auto
+[push]
+        default = simple
