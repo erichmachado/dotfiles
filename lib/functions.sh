@@ -3,7 +3,7 @@
 # Includes the provided source files in the current script.
 # Automatically references files relative to $FRESH_LOCAL.
 # Paths with globbing must be provided around double quotes to process all files.
-# 
+#
 # Arguments:
 #   $1 - the file name or pattern of the scripts to load
 # Example:
@@ -11,7 +11,7 @@
 _include()
 {
   for script in "$FRESH_LOCAL"/$1; do
-    [[ -f $script ]] && source $script
+    test -f $script && source $script
   done
 }
 
@@ -40,7 +40,7 @@ _installed()
 #   _directory_exists /usr/local/custom
 _directory_exists()
 {
-  [[ -d $1 ]]
+  test -d $1
 }
 
 # Displays a prompt to the user and collects the answer
@@ -63,7 +63,7 @@ _prompt()
 #   1 - when it is not running OS X
 _running_osx()
 {
-  [[ "$(uname -s)" == "Darwin" ]]
+  test "$(uname -s)" = "Darwin"
 }
 
 # Checks if it is running Bash
