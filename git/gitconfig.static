@@ -4,3 +4,6 @@
         ui = auto
 [push]
         default = simple
+[pull]
+        # Only allow fast-forward merges
+        ff = only
