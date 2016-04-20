@@ -7,3 +7,6 @@
 [pull]
         # Only allow fast-forward merges
         ff = only
+[alias]
+        # Console tree view
+        tree = log --graph --oneline --decorate
