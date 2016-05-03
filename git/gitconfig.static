@@ -8,5 +8,5 @@
         # Only allow fast-forward merges
         ff = only
 [alias]
-        # Console tree view
-        tree = log --graph --oneline --decorate
+        # Console graph view
+        graph = log --graph --oneline --decorate
