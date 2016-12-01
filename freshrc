@@ -28,6 +28,9 @@ if _installed git; then
   fresh git/gitignore.global --file
 fi
 
+# rsync
+fresh rsync/rsync-filter --file
+
 # rbenv setup
 if _installed rbenv; then
   if _installed brew; then

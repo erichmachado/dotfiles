@@ -1,0 +1,5 @@
+# macOS filter rules
+exclude .DS_Store
+exclude ._*
+# Merges filter rules defined on every directory scanned
+dir-merge .rsync-filter
