@@ -64,3 +64,8 @@ fi
 if _directory_exists /opt/chefdk/bin; then
   fresh chef/\*
 fi
+
+# Go setup
+if _installed go; then
+  fresh go/\*
+fi
