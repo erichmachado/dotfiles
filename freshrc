@@ -70,6 +70,11 @@ if _installed go; then
   fresh go/\*
 fi
 
+# Rust setup
+if test -r $HOME/.cargo/env; then
+  fresh rust/\*
+fi
+
 # Google Cloud SDK setup
 if _installed gcloud; then
   if _installed brew; then
